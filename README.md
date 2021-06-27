@@ -1,7 +1,7 @@
 # Overview
 This repo contains an example of how to create a Tenant in vCloud director. This example is customized for my own use case. However we can use this as a template and customized according to your environment.
 
-## Below are few Customization to have user enter few inputs as possible
+## Below are few customization to have user enter few inputs as possible
 
 ### Codifying the naming conventions and autoselecting the variables.
 User only has to enter the Customer name and "tenant_type". "tenant_type" is used for two things 
@@ -30,4 +30,20 @@ variable "vc_list"
 variable "sp_list" 
 variable "csp_list"
 ```` 
+### Using cidrhost and cidrnetmask function
+By default in our onboarding sheet we get only the subnet address of org network and external network. From which we have to derive ip pool, gateway address etc which can be automated using Terraform "IP Network Functions" - cidrhost, cidrnetmask, cidrsubnet, cidrsubnets
+For example, how to derive Edge gateway IP details :
+```
+locals {
+  egw_ip = cidrhost(var.ext_netw, 2)
+}
+
+locals {
+  egw_gw = cidrhost(var.ext_netw, 1)
+}
+
+locals {
+  egw_mask = cidrnetmask(var.ext_netw)
+}
+```
 
