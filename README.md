@@ -46,4 +46,6 @@ locals {
   egw_mask = cidrnetmask(var.ext_netw)
 }
 ```
+https://www.terraform.io/docs/language/functions/cidrhost.html
+https://www.terraform.io/docs/language/functions/cidrnetmask.html
 
