@@ -6,7 +6,7 @@ This repo contains an example of how to create a Tenant in vCloud director. This
 ### Codifying the naming conventions and autoselecting the variables.
 User only has to enter the Customer name and "tenant_type". "tenant_type" is used for two things 
 1. Generate the names for ORG, VDC, Edge and ORG network
-2. This "tenant_type" value also maps to   "Provider VDC", "vCenterCenter", network pool, storage profile and cpu speed ( we used two different cpu speed 1000 mhz and 2000 mhz for different tenan_type). You can see this mapping in variables.tf. You can call this mapping or autoselecting the variables based on a single value.
+2. This "tenant_type" value also maps to   "Provider VDC", "vCenterCenter", network pool, storage profile and cpu speed ( we use two different cpu speeds 1000 mhz and 2000 mhz for different tenant_type). You can see this mapping in variables.tf. You can call this mapping or autoselect the variables based on a single value.
 
 ````
 ## Names generation locals variables:
